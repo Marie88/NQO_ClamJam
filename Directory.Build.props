@@ -1,0 +1,26 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <Authors>IVVQ - IO</Authors>
+        <Company>NCI Agency</Company>
+        <CopyRight>Copyright © NCI Agency 2025</CopyRight>
+    </PropertyGroup>
+        
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <LangVersion>13</LangVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    </PropertyGroup>
+
+</Project>
