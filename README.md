@@ -1,22 +1,29 @@
-﻿# Clean Code Refactoring Challenge (BadShop)
+﻿# Clean Code Refactoring Challenge (ClamJam)
 
 Welcome! This small assignment is intended for you to showcase your level of design and coding skills. Your goal is to refactor the project while keeping behavior intact and to explain your reasoning.
 
+First read the information in `ClamJam-background.md` to get a feel for the domain.
+
 ## What you get
+
+The first iteration of ClamJam's web shop.
 
 - Solution: `Challenge.Refactor/Challenge.Refactor.sln`
 - Projects:
-  - `BadShop.Library` — backend project with core business logic.
-  - `BadShop.Api` — minimal API
-  - `BadShop.Tests` — a few xUnit tests that capture the current (even if questionable) behavior.
+  - `ClamJam.Library` — backend project with core business logic.
+  - `ClamJam.Api` — minimal API
+  - `ClamJam.Tests` — a few xUnit tests that capture the current (even if questionable) behavior.
 
 ## Your tasks
 
 1. Refactor and redesign to improve readability, testability, maintainability. Take the code to what you consider perfection. You can change and redesign anything you want, including interfaces, API... Feel free to add new classes, methods, etc. If you feel it allows you to demonstrate your skill better, you are welcome but not required to add new features, either technical such as persistence (targeting SqlServer), logging, configuration... or functional.
-2. Design for extensibility: Think about how requirements might change over time or across different users and design accordingly.Making design trade-offs often comes with questions about the domain. Make reasonable assumptions and document them.
+2. Design for extensibility: Think about how requirements might change over time or across different users and design accordingly. Making design trade-offs often comes with questions about the domain. Make reasonable assumptions and document them.
 3. Use git commits with [conventional](https://www.conventionalcommits.org/en/v1.0.0/) commit messages to track changes
-4. Add Swagger documentation and endpoint
-5. Summarily document what you changed, why, and trade-offs (if applicable), in `REFLECTION.md`. (Keep it short and simple.)
+4. Summarily document what you changed, why, and trade-offs (if applicable), in `REFLECTION.md`. (Keep it short and simple, focus on the design decisions and trade-offs you made and on the high-level refactoring you did)
+
+## Non Goals
+- you are not expected to deliver a production-ready system, but a well-designed and well-crafted one.
+- you are not expected to implement every possible feature written in the background, it merely serves to set the stage and to guide your choices.
 
 ## Constraints
 
@@ -29,7 +36,7 @@ Welcome! This small assignment is intended for you to showcase your level of des
 
 - Build: `dotnet build Challenge.Refactor/Challenge.Refactor.sln`
 - Run tests: `dotnet test Challenge.Refactor/Challenge.Refactor.sln`
-- Run API: `dotnet run --project Challenge.Refactor/src/BadShop.Api`
+- Run API: `dotnet run --project Challenge.Refactor/src/ClamJam.Api`
 
 ## What to submit
 
