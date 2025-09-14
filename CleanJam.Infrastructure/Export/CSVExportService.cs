@@ -23,11 +23,10 @@ namespace CleanJam.Infrastructure.Export
             foreach (var item in cart.Items)
                
             {   var taxStrategyForItem = _taxService.GetVatTypeForItem(item);
-                sb.AppendLine($"{item.Product.Name},{item.Product.Price},{item.Quantity},{taxStrategyForItem.VatType}," +
-                    $",{taxStrategyForItem.Rate.Value},{item.DiscountedLineTotal}");
+                sb.AppendLine($"{item.Product.Name},{item.Product.Price.Amount},{item.Quantity},{taxStrategyForItem.VatType},{taxStrategyForItem.Rate.Value},{item.LineTotal.Amount}");
             }
 
-            sb.AppendLine($"TOTAL,{cart.DiscountedSubtotal}");
+            sb.AppendLine($"TOTAL,{cart.Subtotal.Amount}");
 
             byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
 

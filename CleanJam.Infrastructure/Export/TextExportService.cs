@@ -16,11 +16,11 @@ namespace CleanJam.Infrastructure.Export
 
             foreach (var item in cart.Items)
             {
-                sb.AppendLine($"{item.Product.Name,-12},Price/Unit: {item.Product.Price,6:C}, Quantity: {item.Quantity}, TotalPerLine: {item.DiscountedLineTotal}");
+                sb.AppendLine($"{item.Product.Name},Price/Unit: {item.Product.Price.Amount}, Quantity: {item.Quantity}, TotalPerLine: {item.LineTotal.Amount}");
             }
 
             sb.AppendLine("-----------------------------");
-            sb.AppendLine($"Grand Total: {cart.DiscountedSubtotal:C}");
+            sb.AppendLine($"Grand Total: {cart.Subtotal.Amount}");
 
             byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
 
