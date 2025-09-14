@@ -25,6 +25,50 @@ namespace ClamJam.Domain.Entities
         /// </summary>
         public Money DiscountedSubtotal => _items.Values
            .Aggregate(new Money(0, Currency), (sum, item) => sum.Add(item.DiscountedLineTotal ?? item.LineTotal));
+        public void AddItem(Product product, int quantity = 1)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            if (product.Price.Currency != Currency)
+                throw new InvalidOperationException($"Product currency {product.Price.Currency} does not match cart currency {Currency}");
+
+            if (_items.TryGetValue(product, out var existingItem))
+            {
+                existingItem.AddQuantity(quantity);
+            }
+            else
+            {
+                _items[product] = new CartItem(product, quantity);
+            }
+        }
+
+        public void RemoveItem(Product product)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            _items.Remove(product);
+        }
+
+        public void UpdateItemQuantity(Product product, int quantity)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            if (quantity <= 0)
+            {
+                RemoveItem(product);
+            }
+            else if (_items.TryGetValue(product, out var item))
+            {
+                item.UpdateQuantity(quantity);
+            }
+            else
+            {
+                AddItem(product, quantity);
+            }
+        }
         public bool IsEmpty => _items.Count == 0;
     }
 }

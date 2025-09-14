@@ -36,7 +36,7 @@ public class CartService : ICartService
 
         var cart = await _cartRepository.GetCartAsync(request.CartId);
         var money = new Money(product.Price, cart.Currency);
-
+        cart.AddItem(product);
         await _cartRepository.SaveCartAsync(request.CartId, cart);
     }
 
