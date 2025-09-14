@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ClamJam.Domain\ClamJam.Domain.csproj" />
+    <ProjectReference Include="..\..\CleanJam.Application\CleanJam.Application.csproj" />
+    <ProjectReference Include="..\..\CleanJam.Infrastructure\CleanJam.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\ClamJam.Library\ClamJam.Library.csproj" />
   </ItemGroup>
 
