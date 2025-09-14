@@ -13,7 +13,6 @@
 
         public ExportServiceFactory(IEnumerable<IExportService> exporters)
         {
-            // Build lookup dictionary (case-insensitive)
             _exporters = exporters.ToDictionary(e => e.Format);
         }
 

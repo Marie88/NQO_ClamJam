@@ -45,7 +45,7 @@ public class ProductController : ControllerBase
     /// <param name="id">Product id</param>
     /// <returns>Product</returns>
     [HttpGet("{id}")]
-    public ActionResult<IList<Product>> GetProduct(Guid id)
+    public ActionResult<Product> GetProduct(Guid id)
     {
         try
         {
