@@ -2,10 +2,12 @@
 using ClamJam.Domain.Entities;
 using CleanJam.Application.Cart;
 using CleanJam.Application.Discount;
+using CleanJam.Application.Export;
 using CleanJam.Application.Pricing;
 using CleanJam.Application.Product;
 using CleanJam.Application.Tax;
 using CleanJam.Infrastructure;
+using CleanJam.Infrastructure.Export;
 using CleanJam.Infrastructure.Repository;
 
 namespace ClamJam.Api.Configuration;
@@ -27,6 +29,12 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IDiscountService, DiscountService>();
         services.AddScoped<IPricingService, PricingService>();
         services.AddScoped<ITaxService, TaxService>();
+
+        services.AddScoped<IExportService, JsonExportService>();
+        services.AddScoped<IExportService, CSVExportService>();
+        services.AddScoped<IExportService, TextExportService>();
+
+        services.AddScoped<IExportServiceFactory, ExportServiceFactory>();
 
         return services;
     }

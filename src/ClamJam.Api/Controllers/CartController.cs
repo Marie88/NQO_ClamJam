@@ -82,6 +82,27 @@ public class CartController : ControllerBase
         }
     }
 
+    ///  Exports the current cart as a file
+    /// </summary>
+    /// <param name="id">The cart to be exported</param>
+    /// <param name="exportFormat">The file of the type to be returned</param>
+    /// <returns></returns>
+    [HttpGet("{id}/export")]
+    public async Task<ActionResult> Export(Guid id, EnumExportFormat exportFormat)
+    {
+        try
+        {
+            var cart = await _cartService.GetCartById(id);
+            var exporter = _exportServiceFactory.GetExporter(exportFormat);
+            var result = exporter.ExportCart(cart);
+            return result;
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, $"An error occurred while exporting cart data: {e.Message}");
+        }
+    }
+
     /// <summary>
     /// Clear the current cart id
     /// </summary>
